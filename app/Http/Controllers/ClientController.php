@@ -46,7 +46,6 @@ class ClientController extends Controller
         $client->telefonas = $request->telefonas;
         $client->el_pastas = $request->el_pastas;
 
-
         $client->save();
 
         return redirect()->route('klientai.index');

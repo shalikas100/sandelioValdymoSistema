@@ -14,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::all();
+        return view('prekes.index', ['products' => $products]);
     }
 
     /**
@@ -24,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('prekes.create');
     }
 
     /**
@@ -35,7 +36,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $product = new Product ();
+
+        $product->kodas = $request->kodas;
+        $product->barkodas = $request->barkodas;
+        $product->pavadinimas = $request->pavadinimas;
+        $product->likutis = $request->likutis;
+        $product->svoris = $request->svoris;
+        $product->vnt_dezeje = $request->vnt_dezeje;
+        $product->gamintojas = $request->gamintojas;
+        $product->prekes_tipas = $request->prekes_tipas;
+        $product->vieta_sandelyje = $request->vieta_sandelyje;
+
+        $product -> save();
+
+        return redirect()->route('prekes.index');
     }
 
     /**
@@ -46,7 +61,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        return view('prekes.show', ['product' => $product]);
     }
 
     /**
@@ -57,7 +72,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        //
+        return view('prekes.edit',['product' => $product]);
     }
 
     /**
@@ -69,7 +84,19 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        //
+        $product->kodas = $request->kodas;
+        $product->barkodas = $request->barkodas;
+        $product->pavadinimas = $request->pavadinimas;
+        $product->likutis = $request->likutis;
+        $product->svoris = $request->svoris;
+        $product->vnt_dezeje = $request->vnt_dezeje;
+        $product->gamintojas = $request->gamintojas;
+        $product->prekes_tipas = $request->prekes_tipas;
+        $product->vieta_sandelyje = $request->vieta_sandelyje;
+
+        $product -> save();
+
+        return redirect()->route('prekes.index');
     }
 
     /**
@@ -80,6 +107,7 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('prekes.index');
     }
 }

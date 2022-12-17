@@ -14,7 +14,8 @@ class SaleController extends Controller
      */
     public function index()
     {
-        //
+        $sales = Sale::all();
+        return view('pardavimai.index',['sales' => $sales]);
     }
 
     /**
@@ -24,7 +25,7 @@ class SaleController extends Controller
      */
     public function create()
     {
-        //
+        return view('pardavimai.create');
     }
 
     /**
@@ -35,7 +36,17 @@ class SaleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $sale = new Sale ();
+
+
+        $sale->kliento_id = $request->kliento_id;
+        $sale->kodas = $request->kodas;
+        $sale->kiekis = $request->kiekis;
+        
+
+        $sale -> save();
+
+        return redirect()->route('pardavimai.index');
     }
 
     /**
@@ -46,7 +57,8 @@ class SaleController extends Controller
      */
     public function show(Sale $sale)
     {
-        //
+        return view('pardavimai.show', ['sale' => $sale]);
+        
     }
 
     /**
@@ -57,7 +69,7 @@ class SaleController extends Controller
      */
     public function edit(Sale $sale)
     {
-        //
+        return view('pardavimai.edit',['sale' => $sale]);
     }
 
     /**
@@ -69,7 +81,14 @@ class SaleController extends Controller
      */
     public function update(Request $request, Sale $sale)
     {
-        //
+        $sale->kliento_id = $request->kliento_id;
+        $sale->kodas = $request->kodas;
+        $sale->kiekis = $request->kiekis;
+
+
+        $sale->save();
+
+        return redirect()->route('pardavimai.index');
     }
 
     /**
