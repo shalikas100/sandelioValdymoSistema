@@ -38,11 +38,9 @@ class SaleController extends Controller
     {
         $sale = new Sale ();
 
-
         $sale->kliento_id = $request->kliento_id;
         $sale->kodas = $request->kodas;
         $sale->kiekis = $request->kiekis;
-        
 
         $sale -> save();
 
@@ -57,6 +55,7 @@ class SaleController extends Controller
      */
     public function show(Sale $sale)
     {
+       
         return view('pardavimai.show', ['sale' => $sale]);
         
     }

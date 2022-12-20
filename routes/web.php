@@ -3,6 +3,7 @@
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SaleController;
+use App\Http\Controllers\RegistrationController;
 use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
@@ -55,3 +56,16 @@ Route::get('/pardavimai/show/{sale}',[SaleController::class, 'show'])->name('par
 Route::post('/pardavimai/store',[SaleController::class, 'store'])->name('pardavimai.store');
 Route::post('/pardavimai/update/{sale}', [SaleController::class, 'update'])->name('pardavimai.update');
 // Route::post('/pardavimai/destroy/{product}', [SaleController::class, 'destroy'])->name('pardavimai.destroy');
+
+// Registration
+// vaizdas
+Route::get('/registracija/index', [RegistrationController::class, 'index'])->name('registracija.index');
+Route::get('/registracija/create', [RegistrationController::class, 'create'])->name('registracija.create');
+
+// veiksmas
+Route::post('/registracija/store',[RegistrationController::class, 'store'])->name('registracija.store');
+
+// Prisijungimai
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

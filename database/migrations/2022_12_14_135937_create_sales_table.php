@@ -17,7 +17,9 @@ class CreateSalesTable extends Migration
             
             $table->bigIncrements('id');
             $table->unsignedBigInteger('kliento_id');
-            $table->string('kodas');
+            $table->foreign('kliento_id')->references('id')->on('clients');
+            $table->unsignedBigInteger('kodas');
+            $table->foreign('kodas')->references('id')->on('products');
             $table->integer('kiekis');
             $table->timestamps();
         });

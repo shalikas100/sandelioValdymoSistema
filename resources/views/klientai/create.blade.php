@@ -39,6 +39,7 @@
             <button type="submit">Įrašyti</button>
 
     </form>
+    <a href="{{route('klientai.index')}}">Grįšti į klientų sąrašą</a>
     
 </body>
 </html>

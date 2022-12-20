@@ -14,7 +14,7 @@
             <h1>Peržiūrėti pardavimą</h1>     
         </div>
         <div class="pardavimas">
-            <h3>Pardavimo nr.: {{$sale -> id}}</h3>
+            <h3>Pardavimo nr.: {{100000 + $sale -> id}}</h3>
             <h3>Klientas: {{$sale -> kliento_id}}</h3>
             <div class="table">
                 <table>
